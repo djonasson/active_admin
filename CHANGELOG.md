@@ -8,8 +8,18 @@
 ### Deprecations
 
 * Removed all references to ActiveAdmin::Renderer. If you were using these
-  please update code to use an Arbre component
+  please update code to use an Arbre component. Removed
+  `ActiveAdmin:Views::HeaderRender` and replaced with
+  `ActiveAdmin::Views::Header` component.
+* ActiveAdmin::Menu and ActiveAdmin::MenuItem API has changed. If you were
+  creating custom menu items, the builder syntax has changed to. Menu#add now
+  accepts a MenuItem, instead of building the menu item for you.
 
+## 0.4.3
+
+### Bug Fixes
+
+* [#1063][]: Fix comment issues when using postgres ([@jancel][])
 
 ## 0.4.2
 
@@ -543,6 +553,7 @@ of the highlights. 250 commits. Enough said.
 [#1032]: https://github.com/gregbell/active_admin/issues/1032
 [#1033]: https://github.com/gregbell/active_admin/issues/1033
 [#1041]: https://github.com/gregbell/active_admin/issues/1041
+[#1063]: https://github.com/gregbell/active_admin/issues/1063
 [@BoboFraggins]: https://github.com/BoboFraggins
 [@DMajrekar]: https://github.com/DMajrekar
 [@MoritzMoritz]: https://github.com/MoritzMoritz

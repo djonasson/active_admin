@@ -21,11 +21,11 @@ module ActiveAdmin
 
         def build_active_admin_head
           within @head do
-            meta :"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"
             insert_tag Arbre::HTML::Title, [title, active_admin_application.site_title].join(" | ")
             active_admin_application.stylesheets.each do |style|
               text_node(stylesheet_link_tag(style.path, style.options).html_safe)
             end
+            
             active_admin_application.javascripts.each do |path|
               script :src => javascript_path(path), :type => "text/javascript"
             end
@@ -41,6 +41,7 @@ module ActiveAdmin
               build_page_content
               build_footer
             end
+            build_extra_content
           end
         end
 
@@ -125,6 +126,10 @@ module ActiveAdmin
         # Renders the content for the footer
         def build_footer
           insert_tag view_factory.footer
+        end
+
+        def build_extra_content
+          # Put popovers, etc here 
         end
 
       end
